@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Culqi | API Reference</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main_estilo.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/anim-in-out.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/2d4eaf5983.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/estilolanguage.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+    <link rel="stylesheet" href="assets/css/prismculqi.css">
+    <script src="assets/js/prism.js"></script>
+    <script src="assets/js/clipboard.min.js"></script>
+    <script src="assets/js/prism-line-numbers.js"></script>
+    <script src="assets/js/clipboard.min.js"></script>
+    <script src="assets/js/headroom.js"></script>
+    <!-- Librerias de angular -->
+    <script type="text/javascript" src="assets/js/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="assets/js/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="assets/js/anim-in-out.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script src="https://checkout.culqi.com/v2"></script>
+    
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+    
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl as ctrl" class="no-js">
+    <div id="wrapper">
+        <div id="navsticky" class="header header--fixed hide-from-print headroom headroom--not-bottom headroom--pinned headroom--top">
+            <div id="navtop">
+                <a href="https://www.culqi.com/docs">
+                    <div id="logochico"> <img src="assets/images/logo.svg" alt="Imagen" class="img-responsive"> </div>
+                </a>
+                <div id="navright">
+                    <div class="contmenu">
+                        <ul class="nave">
+                            <li><a href="https://culqi.com"><span class="navbar-links">Inicio</span></a></li>
+                            <li><a class="active" href="#/bienvenida"><span class="navbar-links active">Documentación</span></a></li>
+                            <li><a href="https://culqi.com/api"><span class="navbar-links" style="margin-right: 180px">API</span></a></li>
+                            <li><a href="https://integ-panel.culqi.com/#/login" class="button" ><span>Ingresa</span></a></li>
+                            <li><a href="https://integ-panel.culqi.com/#/registro" class="button button-primary">Regístrate</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="contenedor">
+                <div class="row sinmargen">
+                <div class="col-sm-3 alto">
+                    <div class="menutodo">
+
+                        <div class="scrollmenu">
+
+                        <div class="contencombomenu">
+                            <form>
+                                <select class="combomenu" id="lenguajes" name="lenguajes">
+                                    <option value="1" class="letranegrita">Token</option>
+                                    <option value="2">Crear Token</option>
+                                    <option value="3">Consultar Token</option>
+                                    <option value="4">Desactivar Token</option>
+                                    <option value="1" class="letranegrita">Cargos</option>
+                                    <option value="2">Crear Cargo</option>
+                                    <option value="3">Consultar Cargo</option>
+                                    <option value="4">Listar Cargo</option>
+                                    <option value="1" class="letranegrita">Devoluciones</option>
+                                    <option value="2">Crear Devolución</option>
+                                    <option value="3">Consultar Devolución</option>
+                                    <option value="4">Listar Devolución</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="cntmenu">
+                            
+                            <div class="titlemenu gen">DOCS</div>
+
+                            <div class="cntodomenu panel-group" id="accordion">
+
+                                <div class="cntmenues panel panel-default">
+                                    <div class="titlemenu">
+                                        <a href="#/bienvenida" data-target="#collapsex" data-toggle="collapse" data-parent="#accordion">Bienvenida</a>
+                                    </div>
+                                    <div class="listamenu panel-collapse collapse" id="collapsex">
+                                       <!--<ul>
+                                          <li>
+                                                <a href="#/" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Welcome</div>
+                                                    </div>
+                                                </a>
+                                            </li> 
+                                       </ul>--> 
+                                    </div>
+                                    <div class="titlemenu"><a href=".collapse1" data-toggle="collapse" data-parent="#accordion">Pagos</a></div>
+                                    <div class="listamenu panel-collapse collapse collapse1"> <!-- in -->
+                                        <ul>
+                                            <li>
+                                                <a href="#/pagos/inicio" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Inicio Rápido</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/flujo" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Flujo de un pago</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="menu-subtitle">CAPTURAR TARJETAS</div>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/checkout" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Checkout</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/js" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">JS</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/android" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Android</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/ios" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">iOS</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="menu-subtitle">CARGOS</div>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/crear" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Crear Cargo</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/denegaciones" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Denegaciones</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/pruebas" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Pruebas</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cntmenues panel panel-default">
+                                    <div class="titlemenu"><a href=".collapse2" data-toggle="collapse" data-parent="#accordion">Suscripciones</a></div>
+                                    <div class="listamenu panel-collapse collapse collapse2">
+                                        <ul>
+                                            <li>
+                                                <a href="#/suscripciones/inicio" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Inicio Rápido</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/suscripciones/flujo" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Flujo de una suscripción</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="menu-subtitle">CAPTURAR TARJETAS</div>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/checkout" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Checkout</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/js" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">JS</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/android" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Android</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/pagos/ios" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">iOS</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <div class="menu-subtitle">SUSCRIPCIONES</div>
+                                            </li>
+                                            <li>
+                                                <a href="#/suscripciones/crear" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Crear Suscripción</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/suscripciones/cancelar" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Cancelar Suscripción</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/suscripciones/controlar" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Controlar Suscripción</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/suscripciones/pruebas" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Pruebas</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cntmenues panel panel-default">
+                                    <div class="titlemenu"><a href=".collapse3" data-toggle="collapse" data-parent="#accordion">Desarrollo</a></div>
+                                    <div class="listamenu panel-collapse collapse collapse3">
+                                        <ul>
+                                            <li>
+                                                <a href="#/desarrollo/webhooks" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">WebHooks</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/desarrollo/bibliotecas" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Bibliotecas</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/desarrollo/seguridad" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Seguridad</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/desarrollo/tarjetas" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Tarjetas de prueba</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/desarrollo/produccion" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Pase a producción</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cntmenues panel panel-default">
+                                    <div class="titlemenu gen">CULQI</div>
+                                    <div class="titlemenu"><a href=".collapse4" data-toggle="collapse" data-parent="#accordion">Cuenta</a></div>
+                                    <div class="listamenu panel-collapse collapse collapse4">
+                                        <ul>
+                                            <li>
+                                                <a href="#/cuenta/cuenta" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Cuenta</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="titlemenu"><a href=".collapse5" data-toggle="collapse" data-parent="#accordion">Operaciones</a></div>
+                                    <div class="listamenu panel-collapse collapse collapse5">
+                                        <ul>
+                                            <li>
+                                                <a href="#/operaciones/depositos" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Depósitos</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/operaciones/devoluciones" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Devoluciones</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/operaciones/reportes" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Reportes</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="titlemenu"><a href=".collapse6" data-toggle="collapse" data-parent="#accordion">Fraude</a></div>
+                                    <div class="listamenu panel-collapse collapse collapse6">
+                                        <ul>
+                                            <li>
+                                                <a href="#/fraude/riesgo" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Riesgo</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/fraude/fraude" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Fraude</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#/fraude/disputas" class="otros">
+                                                    <div class="cntlistmenu">
+                                                        <div class="listader">Disputas</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        </div>
+
+
+                        </div>
+                                  
+                </div><!-- Fin de col-sm-3 -->
+                <div class="col-sm-9 alto">
+                <div id="main" ui-view="main" autoscroll="false" class="anim-in-out " data-anim-sync="" data-anim-speed="" ng-style="{
+                  '-webkit-transition-duration': ctrl.speed + 'ms',
+                  '-moz-transition-duration': ctrl.speed + 'ms',
+                  '-ms-transition-duration': ctrl.speed + 'ms',
+                  '-o-transition-duration': ctrl.speed + 'ms',
+                  'transition-duration': ctrl.speed + 'ms'
+                }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div id="footer">
+        <div class="cntfooter define">
+            <div class="upfooter">
+                <div class="col-sm-3">
+                <ul class="sinpadding">
+                    <li class="bajapielista"><span>PRODUCTO</span></li>
+                    <li><a href="https://www.culqi.com/beneficios.html" target="_blank">Beneficios</a></li>
+                    <li><a href="https://www.culqi.com/precio.html" target="_blank">Precios</a></li>
+                    <li><a href="https://www.culqi.com/seguridad.html" target="_blank">Seguridad</a></li>
+                </ul>
+                </div>
+                <div class="col-sm-3">
+                <ul class="paddingmas">
+                    <li class="bajapielista"><span>DESARROLLADORES</span></li>
+                    <li><a href="https://www.culqi.com/docs" target="_blank">Documentación</a></li>
+                    <li><a href="https://culqi.com/api/#/" target="_blank">Referencia de la API</a></li>
+                    <li><a href="https://www.culqi.com/docs/#/desarrollo/bibliotecas" target="_blank">Bibliotecas</a></li>
+                    <li><a href="https://github.com/culqi" target="_blank">Github</a></li>
+                </ul>
+                </div>
+                <div class="col-sm-3">
+                <ul class="paddingmas">
+                    <li class="bajapielista"><span>CULQI</span></li>
+                    <li><a href="https://www.culqi.com/nosotros.html" target="_blank">Nosotros</a></li>
+                    <li><a href="https://medium.com/team-culqi" target="_blank">Blog</a></li>
+                    <li><a href="https://www.culqi.com/contacto.html" target="_blank">Contacto</a></li>
+                </ul>
+                </div>
+                <div class="col-sm-3">
+                    
+                <ul class="paddingmas">
+                    <li class="bajapielista"><span>&nbsp;</span></li>
+                    <li><a href="https://www.culqi.com/legal.html" target="_blank">Terminos & condiciones</a></li>
+                    <li><a href="https://www.culqi.com/legal.html" target="_blank">Politicas de privacidad</a></li>
+                    
+                </ul>
+                <div class="cnticonspie">
+                            <div class="iconredes"><a href="https://es-la.facebook.com/Culqi/" target="_blank"><img src="assets/images/icontface.png"></a></div>
+                            <div class="iconredes"><a href="https://twitter.com/culqioficial?lang=en" target="_blank"><img src="assets/images/icontwetter.png"></a></div>
+                            
+                            <div class="iconredes"><a href="https://github.com/culqi" target="_blank"><img src="assets/images/icongithub.png"></a></div>
+                        </div>
+                </div>
+            </div>
+            <div class="lowerfooter">
+                © 2017 Culqi. Todos los derechos reservados.
+            </div>
+        </div>
+    </div>-->
+
+</body>
+
+</html>
+<script type="text/javascript">
+    (function () {
+        var header = document.querySelector("#navsticky");
+        if (window.location.hash) {
+            header.classList.add("headroom--unpinned");
+        }
+        var headroom = new Headroom(header, {
+            tolerance: {
+                down: 10
+                , up: 20
+            }
+            , offset: 205, // callback when pinned, `this` is headroom object
+            /*onPin : function() { $( "#home .contentallmenu" ).addClass('pin');
+            $( "#home .contentallmenu" ).removeClass('unpin');  },
+            // callback when unpinned, `this` is headroom object
+            onUnpin : function() { $( "#home .contentallmenu" ).addClass('unpin');
+            $( "#home .contentallmenu" ).removeClass('pin');   }*/
+        });
+        headroom.init();
+    }());
+</script>
+<script type="text/javascript">
+$(document).ready(function (e) {
+    $('.otros').click(function () {
+        $(".listamenu > ul").find("li").each(function () {
+            $(this).find("a").removeClass("seleccionado");
+        });
+        $(this).addClass("seleccionado");
+    });
+    //Veamos la resolucion de pantalla
+});
+</script>
